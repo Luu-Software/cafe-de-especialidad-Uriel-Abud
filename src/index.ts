@@ -1,8 +1,15 @@
 import { preguntar } from './lib/consola.ts';
 
 let totalTexto: string = preguntar('Total de la cuenta: ');
-let esEstudiante: string = preguntar('¿Son estudiantes de ORT? si/no: ');
-let personasTexto: string = preguntar('Dividir la cuenta entre: ');
+let totalNúmero: number = Number(totalTexto);
 
-let totalPorPersona: number = 0; // COMPLETAR
-console.log(`Total por persona: $${totalPorPersona}`);
+let esEstudiante: string = preguntar('¿Son estudiantes de ORT? si/no: ');
+if (esEstudiante === "si") {
+    totalNúmero = totalNúmero * 0.9;
+}
+
+let personasTexto: string = preguntar('Dividir la cuenta entre: ');
+let personasNúmero: number = Number(personasTexto);
+
+let totalPorPersona: number = totalNúmero / personasNúmero;
+console.log("Total por persona: $" + totalPorPersona);
